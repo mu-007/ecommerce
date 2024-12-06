@@ -1,34 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import React from 'react'
+import { Routes,Route } from 'react-router-dom'
+import about from './pages/about'
+import cart from './pages/cart'
+import collection from './pages/collection'
+import home from './pages/home'
+import contact from './pages/contact'
+import login from './pages/login'
+import order from './pages/order'
+import placeOrder from './pages/placeOrder'
+import product from './pages/product'
+import NavBar from './components/NavBar'
+import footer from './components/footer'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <NavBar/>
+      <Routes>
+      <Route path="/about" element={about} />
+          <Route path="/cart" element={cart } />
+          <Route path="/collection" element={collection } />
+          <Route path="/" element={home } />
+          <Route path="/contact" element={contact } />
+          <Route path="/login" element={login } />
+          <Route path="/order" element={order } />
+          <Route path="/placeOrder" element={placeOrder } />
+          <Route path="/product/:productId" element={product } />
+
+      </Routes>
+      <footer/>
+      
+    </div>
   )
 }
 
